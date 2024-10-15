@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchDepartments } from "../../utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import toast from "react-hot-toast";
 
 const Add = () => {
   const [departments, setDepartments] = useState([]);
@@ -45,6 +46,7 @@ const Add = () => {
       );
       if (response.data.success) {
         navigate("/admin-dashboard/employees");
+        toast.success("Emplyoee Added");
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {

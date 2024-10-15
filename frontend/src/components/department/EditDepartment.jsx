@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const EditDepratment = () => {
@@ -46,7 +47,8 @@ const EditDepratment = () => {
                 }
             })
             if(response.data.success){
-                navigate("/admin-dashboard/departments")
+                navigate("/admin-dashboard/departments");
+                toast.success("Department updated");
             }
         } catch(error){
             if(error.response && !error.response.data.success){

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchDepartments } from "../../utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom'
+import toast from "react-hot-toast";
 
 const Edit = () => {
   const [employee, setEmployee] = useState({
@@ -74,6 +75,7 @@ const Edit = () => {
       );
       if (response.data.success) {
         navigate("/admin-dashboard/employees");
+        toast.success("Emplyoee updated")
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {

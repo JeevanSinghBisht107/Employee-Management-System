@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Setting = () => {
 
@@ -39,6 +40,7 @@ const Setting = () => {
                 );
                 if(response.data.success){
                     setError("")
+                    toast.success("password updated")
                     user.role === "admin" ?  navigate("/admin-dashboard") : navigate("/employee-dashboard")
                 }
             } catch (error){

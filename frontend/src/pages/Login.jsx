@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext.jsx';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -23,15 +24,16 @@ const Login = () => {
                 localStorage.setItem("token",response.data.token)
                 if(response.data.user.role === "admin"){
                     navigate('/admin-dashboard')
+                    
                 } else {
                     navigate('/employee-dashboard')
                 }
+                toast.success("Logged in")
             }
-        } catch(error){
-            console.log(error);
-            
+        } catch(error){       
             if(error.response && error.response.data.message){
                 setError(error.response.data.message)
+                toast.error(error.response.data.message)
             }  else {
                     setError("server error")
                 }

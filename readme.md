@@ -54,16 +54,14 @@ Now open another terminal write command - cd server, run this command and write 
 5. In the terminal,to run the backend server:
 	node index.js or npm start
 
-7. In the terminal, to run the frontend type:
+6. In the terminal, to run the frontend type:
 npm run dev
 
-**NOTE**- frontend and backend server should be running on different terminal.
+**NOTE** - frontend and backend server should be running on different terminal.
 
-## Features
-- user login/logout Using JWT Token and Bearer Token
-- Authentication based tasks only registered users can perform tasks
-- API interaction using axios.
-- admin based authorization. to setup admin, create a new file inside server folder named "userSeed.js"(or any other name of your choice). write below code in that file:-
+**NOTE** - Before signing up, you need to have at least one department in your database, so for that create one admin and add a department first:-
+
+- to setup admin, create a new file inside server folder named "userSeed.js"(or any other name of your choice). write below code in that file:-
 
 import User from "./models/User.js";
 import bcrypt from 'bcrypt';
@@ -88,3 +86,9 @@ const userRegister = async() =>{
 userRegister();
 
 - in the backend terminal, run this code as:- node "userSeed.js" , now admin details have been added to the database , now you can simply login using above email and password as an admin.  
+
+## Features
+- user login/logout Using JWT Token and Bearer Token
+- Authentication based tasks only registered users can perform tasks
+- API interaction using axios.
+- admin based authorization. 

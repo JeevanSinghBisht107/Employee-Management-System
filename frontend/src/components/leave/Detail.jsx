@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Detail = () => {
@@ -42,6 +43,7 @@ const Detail = () => {
         );
         if (response.data.success) {
             navigate('/admin-dashboard/leaves')
+            status === "Approved" ? toast.success("Leave Approved") : toast.error("Leave Rejected");         
         }
       } catch (error) {
         if (error.response && !error.response.data.success) {

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useAuth } from '../../context/authContext'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const Add = () => {
 
@@ -32,6 +33,7 @@ const Add = () => {
             );
             if (response.data.success) {
               navigate(`/employee-dashboard/leaves/${user._id}`)
+              toast.success("Leave Request sent");
             }
           } catch (error) {
             if (error.response && !error.response.data.success) {

@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
 
 const userContext = createContext()
 
@@ -17,7 +18,6 @@ const authContext = ({children}) => {
                             "Authorization":`Bearer ${token}` 
                         }
                     });
-                    console.log(response);
                     if(response.data.success){
                         setUser(response.data.user)
                     }
@@ -42,7 +42,8 @@ const authContext = ({children}) => {
 
     const logout = () =>{
         setUser(null)
-        localStorage.removeItem("token")
+        localStorage.removeItem("token");
+        toast.success("Logged out")
     }
 
   return (

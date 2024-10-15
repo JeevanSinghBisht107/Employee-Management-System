@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchDepartments, getEmployees } from "../../utils/EmployeeHelper";
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom'
+import toast from "react-hot-toast";
 
 const AddSalary = () => {
   const [salary, setSalary] = useState({
@@ -48,6 +49,7 @@ const AddSalary = () => {
       );
       if (response.data.success) {
         navigate("/admin-dashboard/employees");
+        toast.success("Salary added")
       }
     } catch (error) {
       if (error.response && !error.response.data.success) {

@@ -158,7 +158,9 @@ const Signup = () => {
             required
           >
             <option value="">Select Department</option>
-            {departments.map((dep) => (
+
+            {            
+            departments.map((dep) => (
               <option key={dep._id} value={dep._id}>
                 {dep.dep_name}
               </option>

@@ -18,7 +18,6 @@ const ViewSalary = () => {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },
             });
-            console.log(response.data);
             if(response.data.success){
                 setSalries(response.data.salary);
                 setFilteredSalaries(response.data.salary);
