@@ -1,4 +1,6 @@
 frontend/node_modules
 server/node_modules
-server/public/uploads/
+server/public/uploads/*.jpg
+server/public/uploads/*.png
+server/public/uploads/*.JPG
 server/userSeed.js

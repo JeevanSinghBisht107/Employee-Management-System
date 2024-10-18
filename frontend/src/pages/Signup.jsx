@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchDepartments } from "../utils/EmployeeHelper";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const [departments, setDepartments] = useState([]);
@@ -37,6 +38,7 @@ const Signup = () => {
       const response = await axios.post(`http://localhost:5000/api/auth/signup`,formDataObj);
       if(response.data.success){
         navigate("/login");
+        toast.success("Signed up")
       } 
     } catch(error){
       if(error.response && !error.response.data.success){
